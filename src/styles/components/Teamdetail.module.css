@@ -1,0 +1,129 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px 6px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background var(--transition);
+  width: fit-content;
+}
+
+.backLink:hover {
+  color: var(--green);
+  border-color: var(--green);
+  background: var(--green-dim);
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.crestWrapper {
+  width: 72px;
+  height: 72px;
+  background: var(--bg-card-2);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.crest {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--text);
+}
+
+.country {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-sm);
+  background: var(--bg-card-2);
+  border-radius: var(--radius-md);
+}
+
+.statLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: 52px;
+  }
+  .crestWrapper {
+    width: 96px;
+    height: 96px;
+  }
+  .crest {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .name {
+    font-size: 64px;
+  }
+}

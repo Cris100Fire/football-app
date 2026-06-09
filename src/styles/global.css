@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap");
+
+/* ═══════════════════════════════
+   VARIABLES
+═══════════════════════════════ */
+:root {
+  /* Backgrounds */
+  --bg: #080808;
+  --bg-card: #0f0f0f;
+  --bg-card-2: #141414;
+  --bg-hover: #1c1c1c;
+  --bg-input: #111111;
+  --bg-sidebar: #0a0a0a;
+
+  /* Borders */
+  --border: #1e1e1e;
+  --border-light: #2a2a2a;
+  --border-focus: #333333;
+
+  /* Green accent */
+  --green: #00d46a;
+  --green-dim: rgba(0, 212, 106, 0.1);
+  --green-glow: rgba(0, 212, 106, 0.18);
+  --green-dark: #00b359;
+
+  /* Text */
+  --text: #f0f0f0;
+  --text-soft: #a0a0a0;
+  --text-muted: #555555;
+
+  /* Status */
+  --live: #ff4444;
+  --live-dim: rgba(255, 68, 68, 0.12);
+  --win: #00d46a;
+  --loss: #ff4444;
+  --draw: #f0a500;
+  --error: #e05252;
+  --error-dim: rgba(224, 82, 82, 0.1);
+  --star: #f0c040;
+
+  /* Typography */
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+
+  /* Borders radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --shadow-green: 0 0 20px rgba(0, 212, 106, 0.15);
+
+  /* Transitions */
+  --transition: 0.16s ease;
+
+  /* Layout */
+  --header-height: 56px;
+  --sidebar-width: 240px;
+  --content-pad: 20px;
+}
+
+/* ═══════════════════════════════
+   RESET
+═══════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: inherit;
+}
+
+/* ═══════════════════════════════
+   APP SHELL — mobile first
+═══════════════════════════════ */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Mobile: header top + content below */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: var(--content-pad);
+  overflow-y: auto;
+}
+
+/* Tablet+: sidebar left + content right */
+@media (min-width: 768px) {
+  .app-shell {
+    flex-direction: row;
+  }
+
+  .app-content {
+    padding: var(--space-lg) var(--space-xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --header-height: 60px;
+    --content-pad: 32px;
+  }
+
+  .app-content {
+    padding: var(--space-xl) 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .app-content {
+    padding: var(--space-xl) 56px;
+    max-width: 1400px;
+  }
+}
+
+/* ═══════════════════════════════
+   SCROLLBAR
+═══════════════════════════════ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+}
+
+/* ═══════════════════════════════
+   UTILITY BADGE
+═══════════════════════════════ */
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--live);
+  background: var(--live-dim);
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.badge-live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--live);
+  border-radius: 50%;
+  animation: pulse 1.2s ease infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
+}

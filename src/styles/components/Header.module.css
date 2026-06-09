@@ -1,0 +1,84 @@
+/* Mobile: top bar */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: var(--header-height);
+  background: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--content-pad);
+  gap: var(--space-md);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--green);
+}
+
+/* Mobile nav — horizontal scroll */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition:
+    color var(--transition),
+    background var(--transition);
+}
+
+.link:hover {
+  color: var(--text-soft);
+  background: var(--bg-hover);
+}
+
+.link.active {
+  color: var(--green);
+  background: var(--green-dim);
+}
+
+/* Tablet+: header becomes top bar only (sidebar handles nav) */
+@media (min-width: 768px) {
+  .header {
+    /* header spans full width above sidebar+content */
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Hide nav links in header — they move to sidebar */
+  .nav {
+    display: none;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+}

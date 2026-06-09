@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .list {
+    gap: var(--space-md);
+  }
+}
+
+@media (min-width: 1200px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .list > :last-child {
+    grid-column: 1 / -1;
+  }
+}
