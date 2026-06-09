@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useTeamDetail } from "../hooks/useTeamDetail";
 import styles from "../styles/pages/Teampage.module.css";
 import TeamDetail from "../components/teams/TeamDetail";
