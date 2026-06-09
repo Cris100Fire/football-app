@@ -1,10 +1,10 @@
 const BASE_URL = import.meta.env.PROD
-  ? "https://api.football-data.org/v4"
+  ? import.meta.env.VITE_API_WORKER || "https://api.football-data.org/v4"
   : "/api";
 
-const headers = {
-  "X-Auth-Token": import.meta.env.VITE_API_KEY,
-};
+const headers = import.meta.env.PROD
+  ? {}
+  : { "X-Auth-Token": import.meta.env.VITE_API_KEY };
 
 async function apiFetch(endpoint) {
   const response = await fetch(`${BASE_URL}${endpoint}`, { headers });
