@@ -12,7 +12,7 @@ export default function App() {
   const [competition, setCompetition] = useState("PL");
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/football-app">
       <FavoritesProvider>
         <Header />
         <div className="app-shell">
